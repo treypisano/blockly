@@ -54,6 +54,8 @@ export class CommentIcon extends Icon implements IHasBubble, ISerializable {
   /** The text of this comment. */
   private text = '';
 
+  private oldText = null;
+
   /** The size of this comment (which is applied to the editable bubble). */
   private bubbleSize = new Size(DEFAULT_BUBBLE_WIDTH, DEFAULT_BUBBLE_HEIGHT);
 
@@ -160,7 +162,7 @@ export class CommentIcon extends Icon implements IHasBubble, ISerializable {
         this.sourceBlock,
         'comment',
         null,
-        null,
+        this.oldText,
         text,
       ),
     );
@@ -233,12 +235,16 @@ export class CommentIcon extends Icon implements IHasBubble, ISerializable {
           this.sourceBlock,
           'comment',
           null,
-          this.text,
+          this.oldText,
           newText,
         ),
       );
-      this.text = newText;
+      this.oldText = newText;
     }
+  }
+
+  setOldText(text: string): void {
+    this.oldText = text
   }
 
   /**

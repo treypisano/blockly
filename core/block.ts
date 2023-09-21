@@ -2198,6 +2198,7 @@ export class Block implements IASTNodeLocation, IDeletable {
         comment = this.addIcon(new CommentIcon(this));
       }
       comment.setText(text);
+      comment.setOldText(text);
     } else {
       this.removeIcon(CommentIcon.TYPE);
       eventUtils.fire(
