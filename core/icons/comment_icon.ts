@@ -54,7 +54,7 @@ export class CommentIcon extends Icon implements IHasBubble, ISerializable {
   /** The text of this comment. */
   private text = '';
 
-  private oldText = null;
+  private oldText: string | null = null;
 
   /** The size of this comment (which is applied to the editable bubble). */
   private bubbleSize = new Size(DEFAULT_BUBBLE_WIDTH, DEFAULT_BUBBLE_HEIGHT);
